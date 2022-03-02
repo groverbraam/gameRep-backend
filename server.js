@@ -1,10 +1,10 @@
 //DEPENDENCIES
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 const db = mongoose.connection
 const cors = require('cors');
-const characterController = require('./controllers/index.js')
+const characterController = require('../gameRep-backend/controllers/index.js')
 
 //MIDDLEWARE
 app.use(cors())
@@ -15,7 +15,8 @@ app.use('/games', characterController)
 
 //CONNECTIONS
 mongoose.connect('mongodb://localhost:27017/gameRep')
-db.open('open', () => {
+
+db.once('open', () => {
   console.log('Mongoose is connected...');
 })
 
