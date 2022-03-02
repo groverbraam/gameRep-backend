@@ -6,6 +6,10 @@ const db = mongoose.connection
 const cors = require('cors');
 const characterController = require('../gameRep-backend/controllers/index.js')
 
+//CONNECT TO ATLAS
+require('dotenv').config()
+const MONGODB_URI = process.env.MONGODB_URI;
+
 //MIDDLEWARE
 app.use(cors())
 app.use(express.json())
@@ -14,10 +18,10 @@ app.use(express.json())
 app.use('/games', characterController)
 
 //CONNECTIONS
-mongoose.connect('mongodb://localhost:27017/gameRep')
+mongoose.connect(MONGODB_URI);
 
 db.once('open', () => {
-  console.log('Mongoose is connected...');
+  console.log('Mongoose is connected...', MONGODB_URI);
 })
 
 app.listen(3000, () => {
