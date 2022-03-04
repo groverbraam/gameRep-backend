@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose')
 const db = mongoose.connection
 const cors = require('cors');
-const characterController = require('../gameRep-backend/controllers/index.js')
+const characterController = require('./controllers/index.js')
 
 //CONNECT TO ATLAS
 require('dotenv').config()
