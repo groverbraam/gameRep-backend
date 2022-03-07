@@ -25,11 +25,16 @@ app.use('/games', characterController)
 app.use('/', userController)
 
 //CONNECTIONS
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true});
 
 db.once('open', () => {
   console.log('Mongoose is connected...', MONGODB_URI);
 })
+
+// Error / success
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', PROJECT3_DB));
+db.on('disconnected', () => console.log('mongo disconnected'));
 
 app.listen(3000, () => {
   console.log('Listening....');
