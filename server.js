@@ -31,6 +31,6 @@ db.once('open', () => {
   console.log('Mongoose is connected...', MONGODB_URI);
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log('Listening....');
 })
