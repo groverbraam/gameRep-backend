@@ -33,7 +33,7 @@ db.once('open', () => {
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', PROJECT3_DB));
+db.on('connected', () => console.log('mongo connected: ', myFirstDatabase));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 app.listen(3000, () => {
