@@ -12,7 +12,7 @@ const userController = require('./controllers/users_controller.js')
 
 //CONNECT TO ATLAS
 require('dotenv').config()
-const MONGODB_URI = process.env.MONGODB_URI;
+const myFirstDatabase = process.env.MONGODB_URI;
 
 //MIDDLEWARE
 app.use(cors())
@@ -25,10 +25,10 @@ app.use('/games', characterController)
 app.use('/', userController)
 
 //CONNECTIONS
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true});
+mongoose.connect(myFirstDatabase, { useNewUrlParser: true});
 
 db.once('open', () => {
-  console.log('Mongoose is connected...', MONGODB_URI);
+  console.log('Mongoose is connected...', myFirstDatabase);
 })
 
 // Error / success
