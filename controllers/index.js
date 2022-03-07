@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   })
 })
 
-router.put('/:id', (req, res) => {
+router.put('edit/:id', (req, res) => {
   Game.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedGame) => {
     res.json(updatedGame)
   })
