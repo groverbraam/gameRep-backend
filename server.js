@@ -8,6 +8,7 @@ const cors = require('cors');
 
 //REQUIRE THESE FOR THE ROUTES
 const characterController = require('./controllers/index.js')
+const requestsController = require('./controllers/requests.js')
 const userController = require('./controllers/users_controller.js')
 
 //CONNECT TO ATLAS
@@ -31,6 +32,7 @@ app.use(methodOverride('_method'))
 
 //ROUTING
 app.use('/games', characterController)
+app.use('/requests', requestsController)
 app.use('/', userController)
 
 app.listen(PORT, () => {
