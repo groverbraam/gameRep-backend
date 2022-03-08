@@ -10,7 +10,8 @@ const gameSchema = new Schema(
     genre: String,
     representation: String,
     platforms: [String],
-    description: String
+    description: String,
+    trailer: String
   }
 )
 
